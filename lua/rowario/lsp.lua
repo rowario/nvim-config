@@ -2,17 +2,26 @@ local cmp = require("cmp")
 local source_mapping = {
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
-	path = "[Path]",
 }
 
-
 cmp.setup({
-	mapping = {
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-	},
+	snippet = {
+		expand = function(args)
+			-- For `vsnip` user.
+			-- vim.fn["vsnip#anonymous"](args.body)
 
+			-- For `luasnip` user.
+			require("luasnip").lsp_expand(args.body)
+
+			-- For `ultisnips` user.
+			-- vim.fn["UltiSnips#Anon"](args.body)
+		end,
+	},
+	mapping = {
+		["<CR>"] = {i = cmp.mapping.confirm({ select = true })},
+		["<A-j>"] = {i = cmp.mapping.select_next_item()},
+		["<A-k>"] = {i = cmp.mapping.select_prev_item()},
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
@@ -26,7 +35,7 @@ local function config(_config)
 			Nnoremap("K", ":lua vim.lsp.buf.hover()<CR>")
 			Nnoremap("gd", ":lua vim.lsp.buf.definition()<CR>")
 			Nnoremap("<leader>d", ":lua vim.diagnostic.open_float()<CR>")
-			Nnoremap("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
+			Nnoremap("<A-CR>", ":lua vim.lsp.buf.code_action()<CR>")
 			Nnoremap("<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
 			Inoremap("<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 		end,
@@ -42,4 +51,3 @@ require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "stable", "rust-analyzer" },
 }))
 
-require'lsp_extensions'.inlay_hints{}
