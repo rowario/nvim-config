@@ -18,6 +18,7 @@ Plug 'andweeb/presence.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -28,6 +29,8 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'L3MON4D3/LuaSnip'
 
 Plug 'prettier/vim-prettier'
+
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
 
