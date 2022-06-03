@@ -12,6 +12,8 @@ set scrolloff=15
 " plugins
 call plug#begin(stdpath('config') . "/autoload/plugged")
 
+Plug 'vim-airline/vim-airline'
+
 Plug 'voldikss/vim-floaterm'
 Plug 'joshdick/onedark.vim'
 Plug 'andweeb/presence.nvim'
@@ -53,9 +55,17 @@ tnoremap <leader>tk <cmd>FloatermKill<cr>
 " prettier
 nnoremap <leader>p :Prettier<cr>
 
-" others
-colorscheme onedark 
+" theme
+colorscheme onedark
 hi Normal guibg=none ctermbg=none
 hi FloatermBorder guibg=none guifg=none
+
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#branch#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_section_z ='%p%%'
 
 lua require("rowario")

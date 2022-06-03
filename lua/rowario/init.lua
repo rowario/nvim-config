@@ -9,7 +9,7 @@ Nnoremap = CreateNoremap("n", { noremap = true })
 Inoremap = CreateNoremap("i", { noremap = true })
 
 
-require("rowario.treesitter")
-require("rowario.telescope")
 require("rowario.lsp")
 require("rowario.autopairs")
+require("rowario.telescope")
+require("rowario.treesitter")
