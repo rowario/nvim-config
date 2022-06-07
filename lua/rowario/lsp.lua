@@ -37,12 +37,20 @@ local function config(_config)
 	}, _config or {})
 end
 
-require("lspconfig").tsserver.setup(config())
+require('lspconfig').phpactor.setup(config({
+	cmd = { "phpactor", "language-server" },
+	filetypes = { "php" }
+}))
+
+require("lspconfig").tsserver.setup(config({
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+}))
 
 require("lspconfig").rust_analyzer.setup(config({
 	flags = {
 		debounce_text_changes = 150
 	},
 	cmd = { "rustup", "run", "stable", "rust-analyzer" },
+	filetypes = { "rust" }
 }))
 

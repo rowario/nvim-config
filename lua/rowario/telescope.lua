@@ -6,7 +6,8 @@ require('telescope').setup {
 			"node_modules",
 			".idea",
 			"target",
-			"autoload"
+			"autoload",
+			"dist"
 		}
 	}
 }

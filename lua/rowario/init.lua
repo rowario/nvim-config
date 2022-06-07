@@ -8,7 +8,6 @@ end
 Nnoremap = CreateNoremap("n", { noremap = true })
 Inoremap = CreateNoremap("i", { noremap = true })
 
-
 require("rowario.lsp")
 require("rowario.autopairs")
 require("rowario.telescope")
