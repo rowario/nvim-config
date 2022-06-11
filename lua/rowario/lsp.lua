@@ -5,6 +5,10 @@ local source_mapping = {
 	path = "[Path]"
 }
 
+lspkind = require('lspkind')
+
+lspkind.init()
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -21,6 +25,12 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 	},
+	formatting = {
+		format = lspkind.cmp_format {
+			with_text = true,
+			menu = source_mapping
+		}
+	}
 })
 
 local function config(_config)
@@ -54,3 +64,7 @@ require("lspconfig").rust_analyzer.setup(config({
 	filetypes = { "rust" }
 }))
 
+require'lspconfig'.omnisharp.setup(config({
+    cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
+	filetypes = { "cs", "vb" }
+}))

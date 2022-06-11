@@ -1,16 +1,24 @@
 " main
 set noswapfile
-set tabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
 set nu
 set relativenumber
 set termguicolors
 set scrolloff=15
 
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
+
 " plugins
 call plug#begin(stdpath('config') . "/autoload/plugged")
+
+Plug 'vim-autoformat/vim-autoformat'
+
+Plug 'numToStr/Comment.nvim'
+
+Plug 'gpanders/editorconfig.nvim'
 
 Plug 'vim-airline/vim-airline'
 
@@ -25,6 +33,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-lua/lsp_extensions.nvim'
 
@@ -67,5 +76,11 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_section_z ='%p%%'
+
+" autoformat
+let g:formatdef_my_custom_cs = '"astyle --mode=cs --style=otbs --indent=tab=4 --indent=force-tab --indent-after-parens --indent-namespaces --indent-switches --indent-cases --indent-continuation=4 --indent-col1-comments --pad-oper --pad-comma --pad-header --remove-comment-prefix"'
+let g:formatters_cs = ['my_custom_cs']
+
+nnoremap <leader>fmt <cmd>Autoformat<cr>
 
 lua require("rowario")
