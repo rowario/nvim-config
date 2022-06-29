@@ -18,8 +18,6 @@ Plug 'vim-autoformat/vim-autoformat'
 
 Plug 'numToStr/Comment.nvim'
 
-Plug 'gpanders/editorconfig.nvim'
-
 Plug 'vim-airline/vim-airline'
 
 Plug 'voldikss/vim-floaterm'
@@ -38,8 +36,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-lua/lsp_extensions.nvim'
 
 Plug 'L3MON4D3/LuaSnip'
-
-Plug 'prettier/vim-prettier'
 
 Plug 'windwp/nvim-autopairs'
 
@@ -61,9 +57,6 @@ tnoremap <leader>tn <cmd>FloatermNext<cr>
 tnoremap <leader>tp <cmd>FloatermPrev<cr>
 tnoremap <leader>tk <cmd>FloatermKill<cr>
 
-" prettier
-nnoremap <leader>p :Prettier<cr>
-
 " theme
 colorscheme onedark
 hi Normal guibg=none ctermbg=none
@@ -80,6 +73,8 @@ let g:airline_section_z ='%p%%'
 " autoformat
 let g:formatdef_my_custom_cs = '"astyle --mode=cs --style=otbs --indent=tab=4 --indent=force-tab --indent-after-parens --indent-namespaces --indent-switches --indent-cases --indent-continuation=4 --indent-col1-comments --pad-oper --pad-comma --pad-header --remove-comment-prefix"'
 let g:formatters_cs = ['my_custom_cs']
+
+let g:formatters_typescriptreact = ['prettier']
 
 nnoremap <leader>fmt <cmd>Autoformat<cr>
 
