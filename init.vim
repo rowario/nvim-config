@@ -4,6 +4,7 @@ set nu
 set relativenumber
 set termguicolors
 set scrolloff=15
+set nowrap
 
 set softtabstop=4
 set shiftwidth=4
