@@ -64,7 +64,12 @@ require("lspconfig").rust_analyzer.setup(config({
 	filetypes = { "rust" }
 }))
 
-require'lspconfig'.omnisharp.setup(config({
-    cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
+require("lspconfig").omnisharp.setup(config({
+	cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
 	filetypes = { "cs", "vb" }
+}))
+
+require("lspconfig").clangd.setup(config({
+	cmd = { "clangd" },
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }))
