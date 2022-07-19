@@ -76,6 +76,7 @@ let g:formatdef_my_custom_cs = '"astyle --mode=cs --style=otbs --indent=tab=4 --
 let g:formatters_cs = ['my_custom_cs']
 
 let g:formatters_typescriptreact = ['prettier']
+let g:formatters_prisma = ['prettier']
 
 nnoremap <leader>fmt <cmd>Autoformat<cr>
 

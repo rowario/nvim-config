@@ -73,3 +73,7 @@ require("lspconfig").clangd.setup(config({
 	cmd = { "clangd" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }))
+
+require'lspconfig'.prismals.setup(config({
+	filetypes = { "prisma" },
+}))
