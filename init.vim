@@ -51,6 +51,8 @@ nnoremap <leader>ff <cmd>Telescope find_files initial_mode=normal hidden=true<cr
 nnoremap gr <cmd>Telescope lsp_references trim_text=true<cr>
 
 " terminal
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
 nnoremap <leader>ft <cmd>FloatermToggle<cr>
 tnoremap <leader>ft <C-\><C-n>:FloatermToggle<cr>
 tnoremap <leader>fn <cmd>FloatermNew<cr>
